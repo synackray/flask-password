@@ -17,15 +17,17 @@ A demo of Flask Password can be found [here](https://www.icarustech.com/flask-pa
 ![Screenshot of English with spaces](docs/media/spaces_en.png "English Spaces")
 
 ## Usage
-Flask Password has two ways of setting optional variables, through GET and POST HTTP methods. The following variables are defined.
+Flask Password has two ways of setting optional variables, through GET and POST HTTP methods. If POST method is used, cookies are created for persistence. However, GET method will always override cookie-stored values. The following variables are defined.
 
-| Key       | Value  | Description                      |
-|-----------|--------|----------------------------------|
-| debug     | 0, 1   | Shows key/value pairs in footer  |
-| language  | en, it | Selects word dictionary language |
-| spaces    | 0, 1   | Include spaces in password       |
-| symbol    | 0, 1   | Include symbol in password       |
-| uppercase | 0, 1   | Include uppercase in password    |
+| Key       | Value  | Cookie Name  | Description                      |
+|-----------|--------|--------------|----------------------------------|
+| debug     | 1      | fp_debug     | Shows key/value pairs in footer  |
+| language  | en, it | fp_language  | Selects word dictionary language |
+| spaces    | 0, 1   | fp_spaces    | Include spaces in password       |
+| symbol    | 0, 1   | fp_symbol    | Include symbol in password       |
+| uppercase | 0, 1   | fp_uppercase | Include uppercase in password    |
+
+
 
 ## Installation
 
