@@ -16,7 +16,18 @@ A demo of Flask Password can be found [here](https://www.icarustech.com/flask-pa
 
 ![Screenshot of English with spaces](docs/media/spaces_en.png "English Spaces")
 
-# Installation
+## Usage
+Flask Password has two ways of setting optional variables, through GET and POST HTTP methods. The following variables are defined.
+
+| Key       | Value  | Description                      |
+|-----------|--------|----------------------------------|
+| debug     | 0, 1   | Shows key/value pairs in footer  |
+| language  | en, it | Selects word dictionary language |
+| spaces    | 0, 1   | Include spaces in password       |
+| symbol    | 0, 1   | Include symbol in password       |
+| uppercase | 0, 1   | Include uppercase in password    |
+
+## Installation
 
 1. Browse to the flask-password project folder.
 2. Create Python Virtual Environment [(venv)](https://docs.python.org/3/library/venv.html) and activate it.
