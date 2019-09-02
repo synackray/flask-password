@@ -2,7 +2,7 @@
 
 Flask Password is a password generator based on the [XKCD 936](https://xkcd.com/936/) comic.
 
-Flask Password runs as a web application atop the [Flask](https://palletsprojects.com/p/flask/) Python framework. For a
+Flask Password is written in Python3 and runs as a web application atop the [Flask](https://palletsprojects.com/p/flask/) framework. For a
 complete list of requirements, see `requirements.txt`. The code is available [on GitHub](https://github.com/synackray/flask-password).
 
 ## Demo
