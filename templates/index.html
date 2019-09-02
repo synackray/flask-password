@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>{{ title }}</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/onepagers-gradient.css" rel="stylesheet">
+    <link href="./css/gradients.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+    function reloadPage() {
+      location.reload();
+    }
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#topnav">
+    <!-- MAIN CONTAINER -->
+    <div class="container-fluid">
+      <!-- START SECTION 1 -->
+      <div class="row">
+        <div class="col-md-12 leadsection innershadow {{ theme }}" id="section1">
+
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+          <!-- START SECTION 1 CONTENT -->
+          <h1>{{ title }}</h1><br>
+          <p class="lead"><b>Your new password is</b></p>
+          <p class="lead">{{ password }}</p>
+          <a class="btn btn-primary btn-lg bigger-btn btn-trans" onclick="reloadPage()"><i class="fa fa-refresh" aria-hidden="true"></i> New Password</a>
+          <!-- END SECTION 1 CONTENT -->
+        </div>
+        <div class="col-md-1">
+        </div>
+
+
+        </div><!--/md-12 -->
+      </div><!--/row-->
+      <!-- END SECTION 1 -->
+
+      <div class="row">
+      <div class="col-md-12 footer">
+      <!-- You are free to remove the link back to my website, however you should consider donating to the project on Github :) -->
+      {% if debug %}
+      Debug: {{ debug_data }} | 
+      {% endif %}
+      Copyright &copy; {{ year }} <a href="https://www.icarustech.com">Icarus Technologies</a> | <a href="https://haydenryan.github.io/OnePagers-gradient/">Gradient template</a> by <a href="http://gennext.net.au">Hayden Ryan</a>
+      </div>
+      </div>
+
+    </div><!--/container final closing tag-->
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="./js/bootstrap.min.js"></script>
+      <script>
+
+        $(function () {
+          $(document).scroll(function () {
+            var $nav = $(".navbar-fixed-top");
+            $nav.toggleClass('scrolled', $(this).scrollTop() > 200);
+          });
+        });
+
+        $('body').scrollspy({ target: '#topnav' })
+
+        // DELETE THIS SECTION START
+        // DEMO GRADIENTS
+        $('.demowell').hover(
+           function(){ $(this).addClass('gradient-inverse') },
+           function(){ $(this).removeClass('gradient-inverse') }
+        )
+        //DELETE THIS SECTION END
+
+      </script>
+  </body>
+</html>
