@@ -16,6 +16,7 @@ themes = [
     "frost", "mauve", "deep-sea-space", "solid-vault", "deep-space", "purplin",
     "little-leaf", "purple-bliss", "amethyst", "namn", "kashmir"
     ]
+release = "1.0.0"
 
 @app.route("/", methods=["POST", "GET"])
 def index():
@@ -49,11 +50,12 @@ def index():
             language=options["language"], spaces=options["spaces"],
             symbol=options["symbol"], uppercase=options["uppercase"])
         return render_template(
-            "index.html", language=options["language"],
+            "index.html", debug=options["debug"], debug_data=options,
+            language=options["language"], release=release,
             spaces=options["spaces"], symbol=options["symbol"],
             uppercase=options["uppercase"], theme="sea-blue",
             title="Password Generator", password=password, year=dt.now().year,
-            debug=options["debug"], debug_data=options)
+            )
 
 if __name__ == "__main__":
     app.run(debug=True)
