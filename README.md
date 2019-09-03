@@ -33,4 +33,4 @@ Flask Password has two ways of setting optional variables, through GET and POST 
 5. Install a web server. An Example script of NGINX proxied to Gunicorn is provided in [docs/nginx.conf](docs/nginx.conf)
 
 ## Thanks
-A special thanks to @haydenryan for the [OnePagers-gradient](https://github.com/haydenryan/OnePagers-gradient) templates used in this project.
+A special thanks to [@haydenryan](https://github.com/haydenryan/) for the [OnePagers-gradient](https://github.com/haydenryan/OnePagers-gradient) templates used in this project.
