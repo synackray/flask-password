@@ -24,6 +24,35 @@
     function reloadPage() {
       location.reload();
     }
+
+    function copyPass() {
+      var copyText = document.getElementById("password");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      // Cleanup focus after copy
+      var element = document.activeElement;
+      if (element && /INPUT|TEXTAREA/i.test(element.tagName)) {
+        if ('selectionStart' in element) {
+          element.selectionEnd = element.selectionStart;
+        }
+        element.blur();
+      }
+
+      if (window.getSelection) { // All browsers, except IE <=8
+        window.getSelection().removeAllRanges();
+      } else if (document.selection) { // IE <=8
+        document.selection.empty();
+      }
+      toastAlert();
+    }
+
+    function toastAlert() {
+            $(".alert-success").show();
+            setTimeout(function() {
+                $(".alert-success").fadeOut(1500);
+            }, 1500);
+    }
     </script>
   </head>
   <body data-spy="scroll" data-target="#topnav">
@@ -32,15 +61,16 @@
       <!-- START SECTION 1 -->
       <div class="row">
         <div class="col-md-12 leadsection innershadow {{ theme }}" id="section1">
-
         <div class="col-md-1">
         </div>
         <div class="col-md-10">
           <!-- START SECTION 1 CONTENT -->
           <h1>{{ title }}</h1><br>
           <p class="lead"><b>Your new password is</b></p>
-          <p class="lead">{{ password }}</p>
+          <p class="lead"><input type="text" id="password" size="40" value="{{ password }}"></p>
+          <a class="btn btn-primary btn-lg bigger-btn btn-trans" onclick="copyPass()"><i class="fa fa-copy" aria-hidden="true"></i> Copy</a>
           <a class="btn btn-primary btn-lg bigger-btn btn-trans" onclick="reloadPage()"><i class="fa fa-refresh" aria-hidden="true"></i> New Password</a>
+          <div class="alert alert-success collapse" role="alert"> Password copied to clipboard.</div>
           <!-- END SECTION 1 CONTENT -->
         </div>
         <div class="col-md-1">
