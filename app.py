@@ -4,24 +4,24 @@
 Basic Flask API for password generation
 """
 
+from datetime import datetime as dt
 from flask import Flask, make_response, render_template, request
 from password_generator import generate_password
-from datetime import datetime as dt
 #from random import choice
 
 app = Flask(__name__)
-themes = [
+THEMES = [
     "mirage", "nimvelo", "sea-blue", "celestial", "orca", "love-and-liberty",
-    "the-blue-lagoon", "under-the-lake", "cosmic-fusion","love-couple",
+    "the-blue-lagoon", "under-the-lake", "cosmic-fusion", "love-couple",
     "frost", "mauve", "deep-sea-space", "solid-vault", "deep-space", "purplin",
     "little-leaf", "purple-bliss", "amethyst", "namn", "kashmir"
     ]
-release = "1.0.0"
+RELEASE = "1.0.0"
 
 @app.route("/", methods=["POST", "GET"])
 def index():
     options = {"debug": None, "language": "en", "spaces": "0", "symbol":"1",
-        "uppercase":"1"}
+               "uppercase":"1"}
     if request.method == "POST":
         resp = make_response("")
         for k in options:
@@ -41,7 +41,7 @@ def index():
                 # Set default to ensure existing options are not overridden
                 # if HTML query strings or POST variables are not defined
                 if request.args.get(k, default=None) is not None:
-                     options[k] = request.args.get(k, '')
+                    options[k] = request.args.get(k, '')
                 elif request.cookies.get(f"fp_{k}", default=None) is not None:
                     options[k] = request.cookies.get(f"fp_{k}")
             except KeyError:
@@ -51,7 +51,7 @@ def index():
             symbol=options["symbol"], uppercase=options["uppercase"])
         return render_template(
             "index.html", debug=options["debug"], debug_data=options,
-            language=options["language"], release=release,
+            language=options["language"], release=RELEASE,
             spaces=options["spaces"], symbol=options["symbol"],
             uppercase=options["uppercase"], theme="sea-blue",
             title="Password Generator", password=password, year=dt.now().year,
